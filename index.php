@@ -17,7 +17,7 @@
 
                 <div class="col-md-3">
 						 <a href="#" class="logo" rel="home" itemprop="url">
-                            <img src="./images/Hikvision-Logo.svg" width=200px height=50px alt="Hikvision" />
+                            <img src="./images/Hikvision-Logo.svg" width=200px height=70px alt="Hikvision" />
                         </a>               
                 </div>
              

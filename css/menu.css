@@ -1,3 +1,25 @@
 .main_header {
 	background: #e6e6e6;
 }
+
+
+ul#menu-main-menu {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 30px;
+  }
+
+  #menu-main-menu a {
+    display: block;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    color: black;
+  }
