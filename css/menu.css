@@ -1,25 +1,259 @@
-.main_header {
-	background: #e6e6e6;
+/* memu DD ============= */
+
+:root {
+    --blue: #1e90ff;
+    --white: #ffffff;
+}
+
+body,html{
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.menu_nz{
+    margin-top: 200px;
+    display: flex;
+    border-bottom: 1px solid #c5c7c8;
+    background: #eaebf0;
+    transition: all 0.3s ease-in 0s;
+}
+
+.menu_nz a{
+    display: block;
+    text-decoration: none;
 }
 
 
-ul#menu-main-menu {
-    list-style: none;
-    margin: 0;
-    padding: 10px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    min-height: 30px;
-  }
+.menu_nz input[type="checkbox"] {
+    display: none;
+}
 
-  #menu-main-menu a {
-    display: block;
-    padding: 10px 20px;
-    position: relative;
-    font-size: 18px;
+.opener_master {
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #001f4a;
+    color: white;
+    font-size: 27px;
     text-align: center;
-    white-space: nowrap;
+    padding: 12px 0;
+    cursor: pointer;
+    bottom: 100%;
+    right: 10%;
+}
+
+.menu_nz ul , .menu_nz li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.DDMenu  {
+    position: relative;
+}
+
+.DDMenu .relative-m {
+    position: relative;
+}
+
+.DDMenu > li {
+    float: left;
+    border-right: 1px solid #bcc0c8;
+}
+
+.DDMenu > li.hasChild::before ,.DDMenu > li > a.hasChild::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 4px solid #002f5c;
+    position: absolute;
+    top: 21px;
+    right: 5px;
+    left: auto;
+}
+
+.hasChild.realtive-m {
+    position: relative;
+}
+
+.DDMenu > li > a {
+    display: block;
+    color: #093e9b;
+    font-weight: 700;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-right: 1px solid #fff;
     text-decoration: none;
-    color: black;
-  }
+}
+
+
+.DDMenu > li > ul , .DDMenu .mega {
+    position: absolute;
+    background-color: white;
+    left: 0;
+    white-space: nowrap;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    transition: all 0.3s ease-in 0s;
+    border-bottom: 2px solid #3350b2;
+    top: 70px;
+}
+
+.DDMenu .mega{
+    width: 100%;
+}
+
+.mega-content {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+
+.DDMenu > li > ul > li:hover {
+    background: #3350b2;
+}
+
+
+.DDMenu > li.hasChild:hover:before , .DDMenu > li > a.hasChild:hover:before {
+    border-top: 4px solid #eceff1;
+}
+
+.DDMenu > li > ul > li:hover > a {
+    color: white;
+}
+
+.DDMenu label.opener {
+    position: absolute;
+    width: 48px;
+    height: 47px;
+    top: 1px;
+    right: 4px;
+    display: none;
+    cursor: pointer;
+    font-size: 47px;
+    background: #00204b;
+}
+
+.DDMenu label.opener::after {
+    content: '+';
+    position: absolute;
+    color: white;
+    top: -4px;
+    right: 13px;
+}
+
+.DDMenu input[type="checkbox"]:checked ~ label.opener::after {
+    content: '-';
+    position: absolute;
+    color: white;
+    top: -4px;
+    right: 15px;
+}
+
+
+
+.DDMenu   > li > ul > li > a {
+    color: #3350b2;
+    font-size: 14px;
+    display: block;
+    white-space: nowrap;
+    padding: 10px 12px;
+    min-width: 240px;
+    border-bottom: 1px solid #F3F3F3;
+}
+
+
+.mg-group a{
+    padding: 3px;
+    margin: 2px;
+}
+
+@media (min-width: 992px) {
+    .DDMenu > li > a:hover {
+        background: #093e9b;
+        color: white;
+    }
+    .DDMenu > li:hover > ul, .DDMenu > li:hover > .mega {
+        opacity: 1;
+        top: 40px;
+        z-index: 9999;
+        visibility: visible;
+    }
+
+    .mg-group {
+        width: 22%;
+        margin: 0 1%;
+    }
+
+}
+
+@media all and (max-width: 992px) {
+
+    .container.nz {
+        width: 100%;
+    }
+
+    .DDMenu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in;
+    }
+
+    .opener_master {
+        display: block;
+    }
+
+    #master_ceaser:checked ~ div,
+    #master_ceaser:checked ~ ul {
+        max-height: 120em; /* Adjust this value as needed */
+    }
+
+    .DDMenu > li {
+        float: none;
+        border-bottom: 1px solid #f8f8f8;
+        border-right: none;
+        position: relative;
+    }
+
+    .DDMenu li > a {
+        border-bottom: 1px solid #d8d6d6;
+        border-right: none;
+        font-size: 16px;
+        display: block;
+        color: #093e9b;
+        font-weight: 700;
+        padding: 17px 20px;
+    }
+    .DDMenu > li.hasChild::before{
+        display: none;
+    }
+
+    .DDMenu label.opener {
+        display: block;
+    }
+
+    .DDMenu input[type="checkbox"]:checked ~ ul , .DDMenu input[type="checkbox"]:checked ~ div.mega {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+        max-height: 120em; /* Adjust this value as needed */
+        box-shadow: none;
+    }
+
+    .mg-group {
+        width: 100%;
+        margin: 0 1%;
+    }
+}
+
+
